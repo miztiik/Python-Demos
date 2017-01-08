@@ -1,0 +1,25 @@
+# Import the Standard Library modules we need
+import logging
+import logging.handlers
+
+def set_up_logging():
+
+    # Combined logger used elsewhere in the script
+    logging.basicConfig(level=logging.DEBUG)
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+
+    # create a file handler
+    handler = logging.FileHandler('sample.log')
+    handler.setLevel(logging.INFO)
+
+    # add the handlers to the logger
+    logger.addHandler(handler)
+
+
+    return logger
+
+logger = set_up_logging()
+logger.debug('This message should go to the log file')
+logger.info('So should this')
+logger.warning('And this, too')
