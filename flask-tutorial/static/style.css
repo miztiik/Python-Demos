@@ -1,0 +1,85 @@
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+a,
+h1,
+h2 {
+    color: #377ba8;
+}
+h1,
+h2 {
+    margin: 0;
+}
+h1 {
+    border-bottom: 2px solid #eee;
+}
+h2 {
+    font-size: 1.2em;
+}
+
+#content {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    width: 480px;
+    text-align: left;
+    border-collapse: collapse;
+    margin: 45px;
+    
+    overflow: auto;
+    position: relative;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+#content th {
+    font-weight: 400;
+    font-size: 14px;
+    color: #339;
+    padding: 12px;
+}
+#content td {
+    color: #669;
+    border-top: 1px solid #fff;
+    padding: 9px 12px;
+}
+#content tfoot td {
+    font-size: 11px;
+}
+#content tbody td {
+    
+}
+#content tbody tr:hover td {
+    color: #339;
+    background: none;
+}
+#rcorners {
+    border-radius: 25px;
+    border: 2px solid #ccf;
+    padding: 20px;
+}
+#rbutton {
+    background-color: #008CBA;
+    border: 1px;
+    border-radius: 8px;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 12px;
+}
+#rtextbox {
+    width: 300px;
+    height: 40px;
+    font-size: 20pt;
+    padding: 1px;
+}
+#rtextbox:focus {
+    outline: #b3b3ff;
+    box-shadow: 0 0 2px #b3b3ff;
+    border-color: #b3b3ff;
+}
+#underline {
+    color: #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+}

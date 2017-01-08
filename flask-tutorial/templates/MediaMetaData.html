@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movie MetaData</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- link href="static/bootstrap.min.css" rel="stylesheet" media="screen" -->
+        <link rel=stylesheet type=text/css href="static/style.css" media="screen">
+    </head> 
+
+    <body>
+
+        <form id="rcorners" action="/mediaMetaData" method="post">
+            <b style="font-size: 18pt">Media Title:</b>
+            <input id="rtextbox" type="text" name="mediaTitle" placeholder="..." />
+            <b style="font-size: 18pt">Year:</b>
+            <input id="rtextbox" type="text" name="mediaYear" maxlength="4" placeholder="..." />
+            <button id="rbutton" type="submit">Search for media</button>
+        </form>
+
+        
+        <div>
+            {% if result is defined and result|length > 0 %}
+                <h1> {{ result.Title }}! Now, thats a good Movie!</h1><br>
+                <table id="content">
+                        {% for key, value in result.items() %}
+                            {% if key == "Poster" %}
+                                <tr>
+                                    <th> {{ key }} </th>
+                                    <td> <img src="{{ value }}" alt={{ result.Title }} />
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <th> {{ key }} </th>
+                                    <td> {{ value }} </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                </table>
+            {% endif %}
+            {% if error %}
+                <p class="error"><strong>Error:</strong> {{ error }}
+            {% endif %}
+        </div>
+    </body>
+</html>
