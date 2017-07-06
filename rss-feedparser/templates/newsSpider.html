@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movie MetaData</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- link href="static/bootstrap.min.css" rel="stylesheet" media="screen" -->
+        <link rel=stylesheet type=text/css href="static/style.css" media="screen">
+    </head> 
+
+    <body>
+
+        <form id="rcorners" action="/newsSpider" method="post">
+            <select name = "newsSection">
+                {% for key in rssUrlList.keys() %}
+                    <option value = {{ key }} > {{ key }} </option>
+                {% endfor %}
+            </select>
+
+            <button id="rbutton" type="submit">Get my News</button>
+        </form>
+
+        
+        <div>
+            {% if result is defined and result|length > 0 %}
+                <h1 align="center"> {{ result.Title }}! Here is your News !</h1><br>
+                <table id="content">
+                    {% for key,value in result.items() %}
+                        <tr>
+                            <td> {{ key }} </td>
+                            
+                            <td>
+                                <table border="1">
+                                    {% if value is mapping %}
+                                        {% for k,v in value.items() %}
+                                            <tr>
+                                                <td>{{ k }}</td>
+                                                <td>
+                                                    <table>
+                                                        {% for news in v %}
+                                                            <tr><td>{{ news }}</td></tr>
+                                                        {% endfor%}
+                                                    </table>
+                                                </td>
+                                            </tr>
+    
+                                        {% endfor %}
+                                    {% endif %}
+                                </table>
+                            </td>
+                            
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            {% endif %}
+            {% if error %}
+                <p class="error"><strong>Error:</strong> {{ error }}
+            {% endif %}
+        </div>
+    </body>
+</html>

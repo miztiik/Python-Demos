@@ -23,7 +23,7 @@ def mediaMetaData():
         mediaName = request.form['mediaTitle']
     
         if not mediaName:
-            mediaName = "Inception"
+            mediaName = "Titanic"
     
         parameters = { "t" : mediaName , "y" :"", "tomatoes":"True", "r" : "json" }
         response = requests.get( omdbUrl, params = parameters)
